@@ -4,9 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import br.estudos.services.ConsumoApi;
-import br.estudos.services.ConverteDados;
-import br.model.DadosSerie;
+import br.estudos.principal.Principal;
 
 @SpringBootApplication
 public class ScreenmatchApplication implements CommandLineRunner {
@@ -18,13 +16,11 @@ public class ScreenmatchApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		ConsumoApi consumoAPI = new ConsumoApi();
-		var json = consumoAPI.obterDados("https://www.omdbapi.com/?i=tt3896198&apikey=ff6808f");
-		System.out.println(json);
-		ConverteDados conversor = new ConverteDados();
-		DadosSerie dados = conversor.obterDados(json, DadosSerie.class);
-		System.out.println(dados);
-		// ZAP
+		
+		Principal principal = new Principal();
+		principal.exibeMenu();
+		
+	
 	}
 
 }
